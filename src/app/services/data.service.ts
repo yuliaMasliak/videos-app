@@ -71,9 +71,9 @@ export class DataService {
     }
   ];
 
-  constructor() { }
+  constructor() {}
 
-  public getMessages(): Message[] {
+  public getVideoListFromAPI(): Message[] {
     return this.messages;
   }
 
@@ -81,3 +81,4 @@ export class DataService {
     return this.messages[id];
   }
 }
+
