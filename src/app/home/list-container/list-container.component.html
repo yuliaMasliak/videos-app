@@ -2,7 +2,8 @@
   <app-list-video-item
     *ngFor="let video of getVideoList(); let i = index"
     [title]="video.title"
-    [url]="video.url"
+    [id]="video.id"
+    [img]="video.img"
     [counter]="i"
   >
   </app-list-video-item>

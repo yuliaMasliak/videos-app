@@ -5,7 +5,7 @@
     {
       "files": ["*.ts"],
       "parserOptions": {
-        "project": ["tsconfig.json"],
+        "project": ["videos-app/tsconfig.json"],
         "createDefaultProgram": true
       },
       "extends": [
@@ -44,3 +44,4 @@
     }
   ]
 }
+

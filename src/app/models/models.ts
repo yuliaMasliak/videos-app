@@ -12,5 +12,6 @@ export interface snippetData {
 }
 export interface videoItem {
   title: string;
-  url: string;
+  id: string;
+  img: string;
 }

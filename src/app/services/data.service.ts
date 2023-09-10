@@ -20,10 +20,14 @@ export class DataService {
       )
       .subscribe((data) => {
         data.items.forEach((element) => {
+          console.log(element);
+
           const item = {
             title: element.snippet.localized.title,
-            url: element.id
+            id: element.id,
+            img: element.snippet.thumbnails.standard.url
           };
+          console.log(item);
           this.videoLinks.push(item);
         });
       });

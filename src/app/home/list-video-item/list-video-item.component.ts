@@ -1,4 +1,10 @@
-import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import {
+  Component,
+  ChangeDetectionStrategy,
+  Input,
+  HostListener,
+  OnInit
+} from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
 
@@ -8,18 +14,29 @@ import { DataService } from 'src/app/services/data.service';
   styleUrls: ['./list-video-item.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ListVideoItemComponent {
+export class ListVideoItemComponent implements OnInit {
+  public showPreview = false;
   @Input() title: string = '';
   @Input() counter: number = 0;
-  @Input() url: string = '';
+  @Input() id: string = '';
+  @Input() img: string = '';
   constructor(private router: Router, private data: DataService) {}
+  ngOnInit(): void {
+    console.log(this.img);
+  }
 
   handleClick() {
-    this.data.makeUrl(this.url);
+    this.data.makeUrl(this.id);
     this.goToTrackPage();
   }
   goToTrackPage() {
     this.router.navigate(['home/track']);
+  }
+  @HostListener('mouseenter') onMouseEnter() {
+    this.showPreview = true;
+  }
+  @HostListener('mouseleave') onMouseLeave() {
+    this.showPreview = false;
   }
 }
 
