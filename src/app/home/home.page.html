@@ -1,5 +1,7 @@
 <ion-header [translucent]="true">
-  <ion-title> Inbox </ion-title>
+  <ion-toolbar>
+    <ion-title> Video App - experience most popular YouTube videos</ion-title>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
@@ -12,9 +14,11 @@
 
   <ion-list>
     <app-list-video-item
-      *ngFor="let video of getVideoList()"
+      *ngFor="let video of getVideoList(); let i = index"
       [title]="video.title"
-    ></app-list-video-item>
+      [counter]="i"
+    >
+    </app-list-video-item>
   </ion-list>
 </ion-content>
 

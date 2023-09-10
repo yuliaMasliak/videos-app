@@ -1,15 +1,19 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RefresherCustomEvent } from '@ionic/angular';
-import { DataService, Message } from '../services/data.service';
+import { DataService } from '../services/data.service';
+import { videoItem } from '../models/models';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss']
 })
-export class HomePage {
-  private data = inject(DataService);
-  constructor() {}
+export class HomePage implements OnInit {
+  constructor(private data: DataService) {}
+  ngOnInit(): void {
+    this.data.getVideoListFromAPI();
+    console.log(this.data.videoLinks);
+  }
 
   refresh(ev: any) {
     setTimeout(() => {
@@ -17,8 +21,8 @@ export class HomePage {
     }, 3000);
   }
 
-  getMessages(): Message[] {
-    return this.data.getMessages();
+  getVideoList(): videoItem[] {
+    return this.data.videoLinks;
   }
 }
 

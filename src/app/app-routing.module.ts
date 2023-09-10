@@ -8,14 +8,19 @@ const routes: Routes = [
       import('./home/home.module').then((m) => m.HomePageModule)
   },
   {
-    path: 'message/:id',
+    path: 'track',
     loadChildren: () =>
-      import('./view-message/view-message.module').then(
-        (m) => m.ViewMessagePageModule
+      import('./single-video/single-video.module').then(
+        (m) => m.SingleVideoModule
       )
   },
   {
     path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+  {
+    path: '**',
     redirectTo: 'home',
     pathMatch: 'full'
   }
