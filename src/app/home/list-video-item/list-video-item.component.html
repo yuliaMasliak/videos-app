@@ -1,10 +1,16 @@
-<ion-item (click)="handleClick()">
-  <span>{{ counter + 1 }}</span>
+<ion-item
+  class="video-item"
+  (click)="handleClick()"
+>
   <ion-label class="ion-text-wrap">
+    <span>{{ counter + 1 }}. </span>
     <h2>
       {{ title }}
-      <span class="date"> </span>
     </h2>
   </ion-label>
+  <ion-icon
+    name="play"
+    aria-label="Play"
+  ></ion-icon>
 </ion-item>
 
