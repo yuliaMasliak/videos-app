@@ -1,0 +1,8 @@
+{
+  "name": "Videos-App",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "98fe5a86"
+}
