@@ -7,13 +7,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./home/home.module').then((m) => m.HomePageModule)
   },
-  {
-    path: 'track',
-    loadChildren: () =>
-      import('./single-video/single-video.module').then(
-        (m) => m.SingleVideoModule
-      )
-  },
+
   {
     path: '',
     redirectTo: 'home',
@@ -21,7 +15,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'home',
+    redirectTo: 'home/list',
     pathMatch: 'full'
   }
 ];

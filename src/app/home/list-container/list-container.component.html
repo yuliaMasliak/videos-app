@@ -1,0 +1,10 @@
+<ion-list>
+  <app-list-video-item
+    *ngFor="let video of getVideoList(); let i = index"
+    [title]="video.title"
+    [url]="video.url"
+    [counter]="i"
+  >
+  </app-list-video-item>
+</ion-list>
+

@@ -12,13 +12,6 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
-  <ion-list>
-    <app-list-video-item
-      *ngFor="let video of getVideoList(); let i = index"
-      [title]="video.title"
-      [counter]="i"
-    >
-    </app-list-video-item>
-  </ion-list>
+  <ion-router-outlet></ion-router-outlet>
 </ion-content>
 

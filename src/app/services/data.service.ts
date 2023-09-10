@@ -9,6 +9,7 @@ export class DataService {
   private BASE_URL = 'https://www.googleapis.com/youtube/v3/';
   private API_KEY = 'AIzaSyA9z6ja0l_9m3Xv7jUw8sf35P2Z4nXc03A';
   public videoLinks: videoItem[] = [];
+  public currentVideo: string = '';
 
   constructor(private http: HttpClient) {}
 
@@ -21,7 +22,7 @@ export class DataService {
         data.items.forEach((element) => {
           const item = {
             title: element.snippet.localized.title,
-            url: element.snippet.thumbnails.standard.url
+            url: element.id
           };
           this.videoLinks.push(item);
         });
@@ -30,6 +31,9 @@ export class DataService {
 
   public getVideoListFromService(): videoItem[] {
     return this.videoLinks;
+  }
+  public makeUrl(id: string) {
+    this.currentVideo = `https://www.youtube.com/embed/${id}`;
   }
 }
 

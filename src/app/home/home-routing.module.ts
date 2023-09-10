@@ -1,12 +1,22 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
 import { HomePage } from './home.page';
+import { ListContainerComponent } from './list-container/list-container.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomePage
+    component: HomePage,
+    children: [
+      { path: 'list', component: ListContainerComponent },
+      {
+        path: 'track',
+        loadChildren: () =>
+          import('../single-video/single-video.module').then(
+            (m) => m.SingleVideoModule
+          )
+      }
+    ]
   }
 ];
 

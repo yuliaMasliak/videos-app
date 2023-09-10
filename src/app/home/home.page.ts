@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { RefresherCustomEvent } from '@ionic/angular';
 import { DataService } from '../services/data.service';
 import { videoItem } from '../models/models';
+import { Router, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,10 +10,10 @@ import { videoItem } from '../models/models';
   styleUrls: ['home.page.scss']
 })
 export class HomePage implements OnInit {
-  constructor(private data: DataService) {}
+  constructor(private data: DataService, private router: Router) {}
   ngOnInit(): void {
     this.data.getVideoListFromAPI();
-    console.log(this.data.videoLinks);
+    this.router.navigate(['home/list']);
   }
 
   refresh(ev: any) {

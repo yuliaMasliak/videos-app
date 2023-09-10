@@ -3,7 +3,7 @@ export interface VideoListResponse {
   items: videoData[];
 }
 export interface videoData {
-  kind: string;
+  id: string;
   snippet: snippetData;
 }
 export interface snippetData {
