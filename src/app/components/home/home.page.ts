@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RefresherCustomEvent } from '@ionic/angular';
-import { DataService } from '../services/data.service';
-import { videoItem } from '../models/models';
+import { DataService } from '../../services/data.service';
 import { Router } from '@angular/router';
 
 @Component({

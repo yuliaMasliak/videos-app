@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { NotFoundPageComponent } from './components/not-found-page/not-found-page.component';
 
 const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('./home/home.module').then((m) => m.HomePageModule)
+      import('./components/home/home.module').then((m) => m.HomePageModule)
   },
   {
     path: '**',
-    redirectTo: 'home/list',
-    pathMatch: 'full'
+    component: NotFoundPageComponent
   }
 ];
 
