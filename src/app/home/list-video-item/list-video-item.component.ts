@@ -6,6 +6,7 @@ import {
 } from '@angular/core';
 import { videoItem } from 'src/app/models/models';
 import { trigger, style, animate, transition } from '@angular/animations';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-video-item',
@@ -31,12 +32,17 @@ export class ListVideoItemComponent {
   };
   @Input() counter: number = 0;
 
-  constructor() {}
+  constructor(private route: Router) {}
   @HostListener('mouseenter') onMouseEnter() {
     this.showPreview = true;
   }
   @HostListener('mouseleave') onMouseLeave() {
     this.showPreview = false;
+  }
+  handleClick() {
+    this.route.navigate(['/tracks', this.videoItem.id], {
+      state: { title: this.videoItem.title }
+    });
   }
 }
 

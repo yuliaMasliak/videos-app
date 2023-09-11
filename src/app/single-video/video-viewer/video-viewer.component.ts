@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-video-viewer',
@@ -11,11 +11,22 @@ import { ActivatedRoute } from '@angular/router';
 export class VideoViewerComponent implements OnInit {
   public videoUrl: SafeResourceUrl = '';
   public title: string | null = '';
-  constructor(private sanitizer: DomSanitizer, private route: ActivatedRoute) {}
+  constructor(
+    private sanitizer: DomSanitizer,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
-    this.title = this.route.snapshot.paramMap.get('title');
+    const navigationExtras =
+      this.router.getCurrentNavigation()?.extras.state || null;
+
+    if (navigationExtras && navigationExtras.title) {
+      this.title = navigationExtras.title;
+    } else {
+      this.title = '';
+    }
 
     this.videoUrl = this.videoUrl =
       this.sanitizer.bypassSecurityTrustResourceUrl(

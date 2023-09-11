@@ -1,17 +1,15 @@
 <li
   class="list-group-item"
   aria-current="true"
-  ><div class="play-icon">
-    <a
-      [routerLink]="['/tracks', videoItem.id, { title: videoItem.title }]"
-      [state]="{ title: videoItem.title }"
-    >
-      <i
-        class="bi bi-play-circle-fill"
-        size="large"
-        color="primary"
-      ></i
-    ></a>
+  ><div
+    class="play-icon"
+    (click)="handleClick()"
+  >
+    <i
+      class="bi bi-play-circle-fill"
+      size="large"
+      color="primary"
+    ></i>
   </div>
 
   <div class="title"> {{ videoItem.title }}</div>
