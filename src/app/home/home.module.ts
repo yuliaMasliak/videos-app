@@ -4,7 +4,7 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 import { HomePageRoutingModule } from './home-routing.module';
-import { ListVideoItemComponent } from './list-container/list-video-item/list-video-item.component';
+import { ListVideoItemComponent } from './list-video-item/list-video-item.component';
 import { ListContainerComponent } from './list-container/list-container.component';
 
 @NgModule({

@@ -1,9 +1,9 @@
-<ion-list class="video-list">
+<div class="list-group">
   <app-list-video-item
     *ngFor="let video of getVideoList(); let i = index"
     [videoItem]="video"
     [counter]="i"
   >
   </app-list-video-item>
-</ion-list>
+</div>
 

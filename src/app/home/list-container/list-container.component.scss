@@ -1,6 +1,6 @@
-ion-list,
-.video-list {
+.list-group {
   margin: 0 auto;
   margin-top: 12vh;
-  width: 80%;
+  width: fit-content;
+  max-width: 80vw;
 }

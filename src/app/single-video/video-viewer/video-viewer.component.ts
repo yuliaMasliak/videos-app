@@ -10,11 +10,13 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class VideoViewerComponent implements OnInit {
   public videoUrl: SafeResourceUrl = '';
-
+  public title: string | null = '';
   constructor(private sanitizer: DomSanitizer, private route: ActivatedRoute) {}
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
+    this.title = this.route.snapshot.paramMap.get('title');
+
     this.videoUrl = this.videoUrl =
       this.sanitizer.bypassSecurityTrustResourceUrl(
         `https://www.youtube.com/embed/${id}`

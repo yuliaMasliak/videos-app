@@ -1,0 +1,27 @@
+<li
+  class="list-group-item"
+  aria-current="true"
+  ><div class="play-icon">
+    <a
+      [routerLink]="['/home/track', videoItem.id, { title: videoItem.title }]"
+      [state]="{ title: videoItem.title }"
+    >
+      <i
+        class="bi bi-play-circle-fill"
+        size="large"
+        color="primary"
+      ></i
+    ></a>
+  </div>
+
+  <div class="title"> {{ videoItem.title }}</div>
+</li>
+
+<div *ngIf="showPreview">
+  <img
+    class="preview"
+    src="{{ videoItem.img }}"
+    alt="video preview"
+  />
+</div>
+

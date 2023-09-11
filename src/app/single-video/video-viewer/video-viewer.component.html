@@ -1,10 +1,13 @@
 <div class="track">
-  <iframe
-    width="560"
-    height="315"
-    [src]="videoUrl"
-    frameborder="0"
-    allowfullscreen
-  ></iframe
-></div>
+  <div class="card">
+    <iframe
+      [src]="videoUrl"
+      frameborder="1"
+      allowfullscreen
+    ></iframe>
+    <div class="card-body">
+      <p class="card-text">{{ title }}</p>
+    </div>
+  </div>
+</div>
 

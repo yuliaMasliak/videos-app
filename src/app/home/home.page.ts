@@ -21,9 +21,5 @@ export class HomePage implements OnInit {
       (ev as RefresherCustomEvent).detail.complete();
     }, 3000);
   }
-
-  getVideoList(): videoItem[] {
-    return this.data.videoLinks;
-  }
 }
 
