@@ -20,14 +20,13 @@ export class DataService {
       )
       .subscribe((data) => {
         data.items.forEach((element) => {
-          console.log(element);
-
           const item = {
             title: element.snippet.localized.title,
             id: element.id,
-            img: element.snippet.thumbnails.standard.url
+            img: element.snippet.thumbnails.standard.url,
+            url: `https://www.youtube.com/embed/${element.id}`
           };
-          console.log(item);
+
           this.videoLinks.push(item);
         });
       });

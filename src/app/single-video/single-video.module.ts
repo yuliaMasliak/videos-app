@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { VideoViewerComponent } from './video-viewer/video-viewer.component';
 import { RouterModule, Routes } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
 
 const routes: Routes = [
   {
@@ -10,8 +11,8 @@ const routes: Routes = [
   }
 ];
 @NgModule({
-  declarations: [],
-  imports: [CommonModule, RouterModule.forChild(routes)]
+  declarations: [VideoViewerComponent],
+  imports: [CommonModule, IonicModule, RouterModule.forChild(routes)]
 })
 export class SingleVideoModule {}
 

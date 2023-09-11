@@ -14,6 +14,7 @@ export class VideoViewerComponent implements OnInit {
     this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
       this.data.currentVideo
     );
+    console.log(this.videoUrl);
   }
 }
 

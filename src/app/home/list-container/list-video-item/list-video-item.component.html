@@ -1,0 +1,27 @@
+<ion-item class="video-item">
+  <ion-label class="ion-text-wrap">
+    <span>{{ counter + 1 }}.</span>
+    <div class="icon-wrapper"
+      ><ion-icon
+        name="play"
+        aria-label="Play"
+        class="play-icon"
+        size="large"
+        color="primary"
+        (click)="handleClick()"
+      ></ion-icon
+    ></div>
+    <h2>
+      {{ title }}
+    </h2>
+  </ion-label>
+</ion-item>
+
+<div *ngIf="showPreview">
+  <img
+    class="preview"
+    src="{{ img }}"
+    alt="video preview"
+  />
+</div>
+
