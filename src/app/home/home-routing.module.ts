@@ -4,13 +4,19 @@ import { HomePage } from './home.page';
 import { ListContainerComponent } from './list-container/list-container.component';
 
 const routes: Routes = [
-  { path: 'list', component: ListContainerComponent },
   {
-    path: 'track/:id',
-    loadChildren: () =>
-      import('../single-video/single-video.module').then(
-        (m) => m.SingleVideoModule
-      )
+    path: '',
+    component: HomePage,
+    children: [
+      { path: 'list', component: ListContainerComponent },
+      {
+        path: 'track/:id',
+        loadChildren: () =>
+          import('../single-video/single-video.module').then(
+            (m) => m.SingleVideoModule
+          )
+      }
+    ]
   }
 ];
 
