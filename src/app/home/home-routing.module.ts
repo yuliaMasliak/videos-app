@@ -8,9 +8,9 @@ const routes: Routes = [
     path: '',
     component: HomePage,
     children: [
-      { path: 'list', component: ListContainerComponent },
+      { path: 'tracks', component: ListContainerComponent },
       {
-        path: 'track/:id',
+        path: 'tracks/:id',
         loadChildren: () =>
           import('../single-video/single-video.module').then(
             (m) => m.SingleVideoModule

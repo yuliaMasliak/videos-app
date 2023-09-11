@@ -13,7 +13,7 @@ export class HomePage implements OnInit {
   constructor(private data: DataService, private router: Router) {}
   ngOnInit(): void {
     this.data.getVideoListFromAPI();
-    this.router.navigate(['list']);
+    this.router.navigate(['tracks']);
   }
 
   refresh(ev: any) {
