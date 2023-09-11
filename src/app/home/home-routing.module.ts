@@ -8,7 +8,7 @@ const routes: Routes = [
     path: '',
     component: HomePage,
     children: [
-      { path: 'tracks', component: ListContainerComponent },
+      { path: '', component: ListContainerComponent },
       {
         path: 'tracks/:id',
         loadChildren: () =>
