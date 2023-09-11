@@ -10,7 +10,7 @@ const routes: Routes = [
     children: [
       { path: 'list', component: ListContainerComponent },
       {
-        path: 'track',
+        path: 'track/:id',
         loadChildren: () =>
           import('../single-video/single-video.module').then(
             (m) => m.SingleVideoModule

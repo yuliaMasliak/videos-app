@@ -5,6 +5,7 @@ import {
   HostListener
 } from '@angular/core';
 import { Router } from '@angular/router';
+import { videoItem } from 'src/app/models/models';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
@@ -14,12 +15,15 @@ import { DataService } from 'src/app/services/data.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ListVideoItemComponent {
-  public showPreview = false;
-  @Input() title: string = '';
+  protected showPreview = false;
+
+  @Input() videoItem: videoItem = {
+    title: '',
+    id: '',
+    img: ''
+  };
   @Input() counter: number = 0;
-  @Input() id: string = '';
-  @Input() img: string = '';
-  @Input() url: string = '';
+
   constructor(private router: Router, private data: DataService) {}
   @HostListener('mouseenter') onMouseEnter() {
     this.showPreview = true;
@@ -28,11 +32,7 @@ export class ListVideoItemComponent {
     this.showPreview = false;
   }
   handleClick() {
-    this.data.makeUrl(this.id);
-    this.goToTrackPage();
-  }
-  goToTrackPage() {
-    this.router.navigate(['home/track']);
+    this.router.navigate(['home/track', this.videoItem.id]);
   }
 }
 

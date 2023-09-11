@@ -12,7 +12,7 @@
       ></ion-icon
     ></div>
     <h2>
-      {{ title }}
+      {{ videoItem.title }}
     </h2>
   </ion-label>
 </ion-item>
@@ -20,7 +20,7 @@
 <div *ngIf="showPreview">
   <img
     class="preview"
-    src="{{ img }}"
+    src="{{ videoItem.img }}"
     alt="video preview"
   />
 </div>

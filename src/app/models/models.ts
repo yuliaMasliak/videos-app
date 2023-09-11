@@ -14,5 +14,4 @@ export interface videoItem {
   title: string;
   id: string;
   img: string;
-  url: string;
 }

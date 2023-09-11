@@ -23,8 +23,7 @@ export class DataService {
           const item = {
             title: element.snippet.localized.title,
             id: element.id,
-            img: element.snippet.thumbnails.standard.url,
-            url: `https://www.youtube.com/embed/${element.id}`
+            img: element.snippet.thumbnails.standard.url
           };
 
           this.videoLinks.push(item);

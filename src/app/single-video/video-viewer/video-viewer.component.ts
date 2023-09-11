@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-video-viewer',
@@ -8,13 +9,16 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
   styleUrls: ['./video-viewer.component.scss']
 })
 export class VideoViewerComponent implements OnInit {
-  constructor(private data: DataService, private sanitizer: DomSanitizer) {}
   public videoUrl: SafeResourceUrl = '';
+
+  constructor(private sanitizer: DomSanitizer, private route: ActivatedRoute) {}
+
   ngOnInit() {
-    this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
-      this.data.currentVideo
-    );
-    console.log(this.videoUrl);
+    const id = this.route.snapshot.paramMap.get('id');
+    this.videoUrl = this.videoUrl =
+      this.sanitizer.bypassSecurityTrustResourceUrl(
+        `https://www.youtube.com/embed/${id}`
+      );
   }
 }
 
