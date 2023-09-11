@@ -17,9 +17,12 @@
   <div class="title"> {{ videoItem.title }}</div>
 </li>
 
-<div *ngIf="showPreview">
+<div
+  *ngIf="showPreview"
+  class="preview"
+  [@enterAnimation]
+>
   <img
-    class="preview"
     src="{{ videoItem.img }}"
     alt="video preview"
   />
