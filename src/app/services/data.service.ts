@@ -8,8 +8,7 @@ import { VideoListResponse, videoItem } from '../models/models';
 export class DataService {
   private BASE_URL = 'https://www.googleapis.com/youtube/v3/';
 
-  private API_KEY = process.env.API_KEY;
-  // 'AIzaSyA9z6ja0l_9m3Xv7jUw8sf35P2Z4nXc03A';
+  private API_KEY = 'AIzaSyA9z6ja0l_9m3Xv7jUw8sf35P2Z4nXc03A';
   public videoLinks: videoItem[] = [];
   public currentVideo: string = '';
 
