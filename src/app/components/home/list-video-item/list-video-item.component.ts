@@ -5,7 +5,13 @@ import {
   HostListener
 } from '@angular/core';
 import { videoItem } from 'src/app/models/models';
-import { trigger, style, animate, transition } from '@angular/animations';
+import {
+  trigger,
+  style,
+  animate,
+  transition,
+  state
+} from '@angular/animations';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,17 +20,32 @@ import { Router } from '@angular/router';
   styleUrls: ['./list-video-item.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
-    trigger('enterAnimation', [
-      transition(':enter', [
-        style({ transform: 'translate(0)', opacity: 0 }),
-        animate('300ms', style({ transform: 'scale(100%)', opacity: 1 }))
-      ])
+    trigger('openClose', [
+      // ...
+      state(
+        'open',
+        style({
+          height: '200px',
+          opacity: 1,
+          backgroundColor: 'yellow'
+        })
+      ),
+      state(
+        'closed',
+        style({
+          height: '0px',
+          opacity: 0.8,
+          backgroundColor: 'blue'
+        })
+      ),
+      transition('open => closed', [animate('0.3s')]),
+      transition('closed => open', [animate('0.4s')])
     ])
   ]
 })
 export class ListVideoItemComponent {
   protected showPreview = false;
-
+  isOpen = false;
   @Input() videoItem: videoItem = {
     title: '',
     id: '',
@@ -34,10 +55,12 @@ export class ListVideoItemComponent {
 
   constructor(private route: Router) {}
   @HostListener('mouseenter') onMouseEnter() {
-    this.showPreview = true;
+    // this.showPreview = true;
+    this.isOpen = true;
   }
   @HostListener('mouseleave') onMouseLeave() {
-    this.showPreview = false;
+    // this.showPreview = false;
+    this.isOpen = false;
   }
   handleClick() {
     this.route.navigate(['/tracks', this.videoItem.id], {
