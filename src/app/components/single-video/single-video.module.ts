@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { VideoViewerComponent } from './video-viewer/video-viewer.component';
 import { RouterModule, Routes } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
+import { NotFoundPageComponent } from '../not-found-page/not-found-page.component';
 
 const routes: Routes = [
   {

@@ -1,5 +1,8 @@
 <div class="track">
-  <div class="card">
+  <div
+    *ngIf="videoUrl"
+    class="card"
+  >
     <iframe
       [src]="videoUrl"
       frameborder="1"

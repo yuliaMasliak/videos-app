@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomePage } from './home.page';
 import { ListContainerComponent } from './list-container/list-container.component';
+import { NotFoundPageComponent } from '../not-found-page/not-found-page.component';
 
 const routes: Routes = [
   {

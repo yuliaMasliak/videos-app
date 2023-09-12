@@ -12,6 +12,7 @@ export class VideoViewerComponent implements OnInit {
   public videoUrl: SafeResourceUrl = '';
   public title: string | null = '';
   constructor(
+    private data: DataService,
     private sanitizer: DomSanitizer,
     private route: ActivatedRoute,
     private router: Router
@@ -19,19 +20,25 @@ export class VideoViewerComponent implements OnInit {
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
-    const navigationExtras =
-      this.router.getCurrentNavigation()?.extras.state || null;
+    const verifiedId = this.data.videoLinks.find((element) => {
+      return element.id === id;
+    });
+    if (verifiedId) {
+      const navigationExtras =
+        this.router.getCurrentNavigation()?.extras.state || null;
 
-    if (navigationExtras && navigationExtras.title) {
-      this.title = navigationExtras.title;
+      if (navigationExtras && navigationExtras.title) {
+        this.title = navigationExtras.title;
+      } else {
+        this.title = '';
+      }
+      this.videoUrl = this.videoUrl =
+        this.sanitizer.bypassSecurityTrustResourceUrl(
+          `https://www.youtube.com/embed/${id}`
+        );
     } else {
-      this.title = '';
+      this.router.navigate(['not-found']);
     }
-
-    this.videoUrl = this.videoUrl =
-      this.sanitizer.bypassSecurityTrustResourceUrl(
-        `https://www.youtube.com/embed/${id}`
-      );
   }
 }
 
